@@ -159,9 +159,9 @@ public class ArticleDetailFragment extends Fragment implements
                         + mCursor.getString(ArticleLoader.Query.AUTHOR));
             }
 
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n\r\n|\n\n)", "<br /><br />")));
+            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
 
-            if (isLargeWidth()) {
+            if (isScreenWider()) {
                 ((TextView) mRootView.findViewById(R.id.article_title)).setText(mCursor.getString(ArticleLoader.Query.TITLE));
             } else {
                 mCollapsingToolbarLayout.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
@@ -179,15 +179,7 @@ public class ArticleDetailFragment extends Fragment implements
                         public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                             if (resource instanceof BitmapDrawable) {
                                 if (getActivity() != null && !getActivity().isFinishing()) {
-                                    Palette palette = Palette.from(((BitmapDrawable) resource).getBitmap()).generate();
-                                    float[] hsv = new float[3];
-                                    int color = palette.getVibrantColor(palette.getMutedColor(palette.getDominantColor(getActivity().getResources().getColor(R.color.dark_muted))));
-                                    Color.colorToHSV(color, hsv);
-                                    hsv[2] *= 0.8f; // value component
-                                    int darkColor = Color.HSVToColor(hsv);
-                                    mCollapsingToolbarLayout.setStatusBarScrimColor(darkColor);
-                                    mCollapsingToolbarLayout.setContentScrimColor(color);
-                                    mRootView.findViewById(R.id.meta_bar).setBackgroundColor(color);
+                                    updateStatusBar(resource);
                                 }
                             }
                             return false;
@@ -197,7 +189,25 @@ public class ArticleDetailFragment extends Fragment implements
         }
     }
 
-    private boolean isLargeWidth() {
+    /**
+     * This function will set color of toolbar header info bar
+     * Source: StackOverflow
+     * @param resource
+     */
+
+    private void updateStatusBar(Drawable resource) {
+        Palette palette = Palette.from(((BitmapDrawable) resource).getBitmap()).generate();
+        float[] hsv = new float[3];
+        int color = palette.getVibrantColor(palette.getMutedColor(palette.getDominantColor(getActivity().getResources().getColor(R.color.muted_color))));
+        Color.colorToHSV(color, hsv);
+        hsv[2] *= 0.8f; // value component
+        int darkColor = Color.HSVToColor(hsv);
+        mCollapsingToolbarLayout.setStatusBarScrimColor(darkColor);
+        mCollapsingToolbarLayout.setContentScrimColor(color);
+        mRootView.findViewById(R.id.ll_header_info).setBackgroundColor(color);
+    }
+
+    private boolean isScreenWider() {
         return mRootView.findViewById(R.id.card) != null;
     }
 

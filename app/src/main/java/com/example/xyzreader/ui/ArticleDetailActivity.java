@@ -27,7 +27,7 @@ public class ArticleDetailActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
         if (savedInstanceState == null) {
             if (getIntent() != null && getIntent().getData() != null) {
@@ -50,6 +50,15 @@ public class ArticleDetailActivity extends AppCompatActivity
         });
 
         getLoaderManager().initLoader(0, null, this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (isFinishing()){
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+        }
     }
 
     @Override

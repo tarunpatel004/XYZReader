@@ -18,9 +18,9 @@
 <resources>
     <color name="photo_placeholder">#ccc</color>
 
-    <color name="ltgray">#ffe0e0e0</color>
+    <color name="gray">#ffe0e0e0</color>
 
-    <color name="dark_muted">#ff333333</color>
+    <color name="muted_color">#ff333333</color>
     <color name="black">#000000</color>
 
     <color name="colorPrimary">#60ad5e</color>

@@ -63,7 +63,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/meta_bar"
+                    android:id="@+id/ll_header_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -78,7 +78,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="@dimen/distance_title_subtitle"
-                        android:textColor="@color/ltgray"
+                        android:textColor="@color/gray"
                         tools:text="Title"/>
 
                     <TextView
@@ -87,7 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingBottom="@dimen/card_text_top_bottom_margin"
-                        android:textColor="@color/ltgray"
+                        android:textColor="@color/gray"
                         tools:text="Date * Author"/>
                 </LinearLayout>
 
