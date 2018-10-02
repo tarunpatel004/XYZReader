@@ -1,0 +1,20 @@
+<resources>
+    <!-- detail -->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="content_top_margin">32dp</dimen>
+    <dimen name="list_side_margin">4dp</dimen>
+
+    <dimen name="app_bar_elevation">4dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_press_translation_z">6dp</dimen>
+    <dimen name="card_text_side_margin">16dp</dimen>
+    <dimen name="card_text_top_bottom_margin">16dp</dimen>
+    <dimen name="distance_title_subtitle">4dp</dimen>
+    <dimen name="item_margin">4dp</dimen>
+    <dimen name="expanded_text_margin">40dp</dimen>
+    <dimen name="app_bar_height_large_width">320dp</dimen>
+    <dimen name="card_view_detail_size">600dp</dimen>
+    <dimen name="card_view_overlap_margin">-180dp</dimen>
+
+</resources>
